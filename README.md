@@ -36,6 +36,15 @@ CustomChannel myCustomChannel = CustomChannel.of("newchannel", "New Channel", fa
 List<Broadcast> otherBroadcasts = somaFm.fetchRecent(myCustomChannel);
 ```
 
+In case you are working from user input:
+
+```java
+String publicName = getUserInput();
+Channel channel = PredefinedChannel
+    .getByPublicName(publicName)
+    .orElseThrow(() -> new UnknownChannelException(publicName)); // Create your own exception
+```
+
 ## JAR file
 
 This lib might be published on a public repository one day.
