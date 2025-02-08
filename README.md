@@ -16,7 +16,7 @@ This functionality was originally extracted from the [somafm-song-history][5] pr
 
 This lib is developed for my very limited personal use and as such, it is not published on any
 public artifact repository, only on a [private, self-hosted one][6]. You can always grab the jar and
-include it in your project. I'll be glad to help if you encounter any [issue][7].
+include it in your project (see below). I'll be glad to help if you encounter any [issue][7].
 
 See the [changelog][8].
 
@@ -35,6 +35,52 @@ List<Broadcast> broadcasts = somaFm.fetchRecent(PredefinedChannel.GROOVE_SALAD);
 CustomChannel myCustomChannel = CustomChannel.of("newchannel", "New Channel", false);
 List<Broadcast> otherBroadcasts = somaFm.fetchRecent(myCustomChannel);
 ```
+
+## JAR file
+
+This lib might be published on a public repository one day.
+
+To use the jar in a project, I suggest the following workflow:
+
+1. Grab the jar.
+
+2. Create a `lib` directory in your project.
+
+3. Still in your project, execute the following Maven command after filling the placeholders:
+
+   ```shell
+   mvn install:install-file
+    -Dfile=[path-to-jar] \
+    -DgroupId=net.lecigne \
+    -DartifactId=somafm-recentlib \
+    -Dversion=0.1.0 \
+    -Dpackaging=jar \
+    -DlocalRepositoryPath=lib/
+   ```
+
+4. Add this to your POM:
+
+   ```xml
+   <repositories>
+     <repository>
+       <id>local-repo</id>
+       <url>file://${project.basedir}/lib/</url>
+       <releases>
+         <enabled>true</enabled>
+       </releases>
+     </repository>
+   </repositories>
+   ```
+
+5. Add this to your dependencies:
+
+   ```xml
+   <dependency>
+     <groupId>net.lecigne</groupId>
+     <artifactId>somafm-recentlib</artifactId>
+     <version>0.1.0</version>
+   </dependency>
+   ```
 
 # Development
 
