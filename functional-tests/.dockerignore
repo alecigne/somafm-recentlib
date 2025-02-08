@@ -1,0 +1,7 @@
+# Ignored everywhere
+*.iml
+
+# Specific targets
+/.dockerignore
+/Dockerfile
+/README.md
