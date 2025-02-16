@@ -64,7 +64,8 @@ To use the jar in a project, I suggest the following workflow:
     -DartifactId=somafm-recentlib \
     -Dversion=0.1.0 \
     -Dpackaging=jar \
-    -DlocalRepositoryPath=lib/
+    -DlocalRepositoryPath=lib/ \
+    -DgeneratePom=true
    ```
 
 4. Add this to your POM:
