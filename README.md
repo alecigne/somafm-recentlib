@@ -58,7 +58,7 @@ To use the jar in a project, I suggest the following workflow:
 3. Still in your project, execute the following Maven command after filling the placeholders:
 
    ```shell
-   mvn install:install-file
+   mvn install:install-file \
     -Dfile=[path-to-jar] \
     -DgroupId=net.lecigne \
     -DartifactId=somafm-recentlib \
