@@ -1,15 +1,14 @@
 name: Build library
 
-# Build when:
-# - PR against master
-# - Direct commit on master
 on:
   pull_request:
     branches:
       - 'master'
+      - 'maintenance'
   push:
     branches:
-      - master
+      - 'master'
+      - 'maintenance'
     paths-ignore:
       - 'example-project'
       - 'functional-tests'

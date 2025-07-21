@@ -1,8 +1,13 @@
 package net.lecigne.somafm.recentlib;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static net.lecigne.somafm.recentlib.PredefinedChannel.DRONE_ZONE;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.google.common.io.Resources;
 import java.io.IOException;
 import java.net.URL;
@@ -13,44 +18,40 @@ import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
-import okhttp3.mockwebserver.Dispatcher;
-import okhttp3.mockwebserver.MockResponse;
-import okhttp3.mockwebserver.MockWebServer;
-import okhttp3.mockwebserver.RecordedRequest;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 @DisplayName("The lib")
+@ExtendWith(WireMockExtension.class)
 class SomaFmIT {
 
-  static MockWebServer mockWebServer;
-
-  @BeforeAll
-  static void beforeAll() throws IOException {
-    mockWebServer = new MockWebServer();
-    mockWebServer.start();
-    mockWebServer.setDispatcher(getDispatcher());
-  }
-
-  @AfterAll
-  static void afterAll() throws IOException {
-    mockWebServer.shutdown();
-  }
+  @RegisterExtension
+  static WireMockExtension wiremock = WireMockExtension.newInstance()
+      .options(WireMockConfiguration.wireMockConfig().dynamicPort())
+      .build();
 
   @Test
-  void should_work() {
+  void should_work() throws IOException {
     // Given
-    // Latest track was played at 03:36:43 UTC-7 so at 10:36:43 UTC. The snapshot time will be
-    // rounded to 11:00:00 UTC.
+    URL url = Resources.getResource("data/dronezone.html");
+    String html = Resources.toString(url, StandardCharsets.UTF_8);
+
+    wiremock.stubFor(get(urlPathEqualTo("/recent/dronezone.html"))
+        .willReturn(aResponse()
+            .withStatus(200)
+            .withBody(html)));
+
     var instantFactory = InstantFactory.fixed(Instant.parse("2018-04-29T11:00:00.00Z"));
-    var clientConfig = SomaFmConfig.of(mockWebServer.url("/").toString(), "ua");
-    HttpClient httpClient = HttpClient.newBuilder()
+    var clientConfig = SomaFmConfig.of(wiremock.getRuntimeInfo().getHttpBaseUrl(), "ua");
+
+    var httpClient = HttpClient.newBuilder()
         .version(Version.HTTP_2)
         .followRedirects(Redirect.NORMAL)
         .connectTimeout(Duration.ofSeconds(10))
         .build();
+
     var somaFm = new SomaFm(new SomaFmHtmlClient(clientConfig, httpClient), new SomaFmHtmlParser(), new BroadcastMapper(instantFactory));
 
     List<Broadcast> expected = Fixtures.getExpectedBroadcasts();
@@ -60,17 +61,6 @@ class SomaFmIT {
 
     // Then
     assertThat(broadcasts).usingRecursiveFieldByFieldElementComparator().isEqualTo(expected);
-  }
-
-  private static Dispatcher getDispatcher() throws IOException {
-    URL url = Resources.getResource("data/dronezone.html");
-    String html = Resources.toString(url, StandardCharsets.UTF_8);
-    return new Dispatcher() {
-      @Override
-      public MockResponse dispatch(RecordedRequest recordedRequest) {
-        return new MockResponse().setResponseCode(200).setBody(html);
-      }
-    };
   }
 
 }
