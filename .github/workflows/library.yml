@@ -4,11 +4,11 @@ on:
   pull_request:
     branches:
       - 'master'
-      - 'maintenance'
+      - 'release'
   push:
     branches:
       - 'master'
-      - 'maintenance'
+      - 'release'
     paths-ignore:
       - 'example-project'
       - 'functional-tests'
