@@ -51,21 +51,18 @@ This lib might be published on a public repository one day.
 
 To use the jar in a project, I suggest the following workflow:
 
-1. Grab the jar.
+1. Grab a zip file in the [release section][9] of this repository. This zip file contains both a JAR
+   and a flattened POM for that version of the lib.
 
 2. Create a `lib` directory in your project.
 
 3. Still in your project, execute the following Maven command after filling the placeholders:
 
    ```shell
-   mvn install:install-file \
-    -Dfile=[path-to-jar] \
-    -DgroupId=net.lecigne \
-    -DartifactId=somafm-recentlib \
-    -Dversion=0.1.0 \
-    -Dpackaging=jar \
-    -DlocalRepositoryPath=lib/ \
-    -DgeneratePom=true
+   ./mvnw install:install-file \
+     -Dfile=[path-to-jar] \
+     -DpomFile=[path-to-pom] \
+     -DlocalRepositoryPath=lib/
    ```
 
 4. Add this to your POM:
@@ -88,7 +85,7 @@ To use the jar in a project, I suggest the following workflow:
    <dependency>
      <groupId>net.lecigne</groupId>
      <artifactId>somafm-recentlib</artifactId>
-     <version>0.1.0</version>
+     <version>0.1.1</version>
    </dependency>
    ```
 
@@ -113,3 +110,5 @@ alerts in case of errors.
 [7]: https://github.com/alecigne/somafm-recently-played/issues
 
 [8]: CHANGELOG.md
+
+[9]: https://github.com/alecigne/somafm-recentlib/releases
