@@ -23,7 +23,7 @@ public class SomaFmRecentService {
         .map(c -> CompletableFuture.supplyAsync(() -> somaFm.fetchRecent(c)))
         .map(CompletableFuture::join)
         .flatMap(List::stream)
-        .sorted(Comparator.comparing(Broadcast::getTime).reversed())
+        .sorted(Comparator.comparing(Broadcast::time).reversed())
         .toList();
   }
 
