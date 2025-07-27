@@ -36,12 +36,11 @@ class BroadcastMapper {
   }
 
   private static Artist mapArtist(RawBroadcast rawBroadcast) {
-    return (rawBroadcast.artist() == null && rawBroadcast.artistLink() == null)
-        ? null
-        : Artist.builder()
-            .name(rawBroadcast.artist())
-            .link(rawBroadcast.artistLink())
-            .build();
+    if (rawBroadcast.artist() == null && rawBroadcast.artistLink() == null) return null;
+    return Artist.builder()
+        .name(rawBroadcast.artist())
+        .link(rawBroadcast.artistLink())
+        .build();
   }
 
 }
