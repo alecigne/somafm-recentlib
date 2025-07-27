@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.2.0](https://github.com/alecigne/somafm-recentlib/tree/v0.2.0) - 2025-07-27
+
+- Add a link to the artist's webpage in the library's return value
+- Improve tests
+
 ## [v0.1.1](https://github.com/alecigne/somafm-recentlib/tree/v0.1.1) - 2025-07-26
 
 - Update dependencies
