@@ -20,6 +20,7 @@ class BroadcastMapperTest {
     var broadcast = RawBroadcast.builder()
         .time("08:00:00") // tracked played at 08:00 UTC-7 -> 15:00 UTC, 1 hour ago
         .artist("artist")
+        .artistLink("artistLink")
         .title("title")
         .album("album")
         .build();
@@ -27,7 +28,7 @@ class BroadcastMapperTest {
         .channel(channel)
         .time(Instant.parse("2024-09-08T15:00:00.00Z"))
         .song(Song.builder()
-            .artist(broadcast.artist())
+            .artist(Artist.builder().name("artist").link("artistLink").build())
             .title(broadcast.title())
             .album(broadcast.album())
             .build())

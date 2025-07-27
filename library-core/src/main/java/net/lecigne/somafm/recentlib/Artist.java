@@ -3,5 +3,5 @@ package net.lecigne.somafm.recentlib;
 import lombok.Builder;
 
 @Builder
-public record Song(Artist artist, String title, String album) {
+public record Artist(String name, String link) {
 }

@@ -29,10 +29,19 @@ class BroadcastMapper {
 
   private static Song rawBroadcastToSong(RawBroadcast rawBroadcast) {
     return Song.builder()
-        .artist(rawBroadcast.artist())
+        .artist(mapArtist(rawBroadcast))
         .title(rawBroadcast.title())
         .album(rawBroadcast.album())
         .build();
+  }
+
+  private static Artist mapArtist(RawBroadcast rawBroadcast) {
+    return (rawBroadcast.artist() == null && rawBroadcast.artistLink() == null)
+        ? null
+        : Artist.builder()
+            .name(rawBroadcast.artist())
+            .link(rawBroadcast.artistLink())
+            .build();
   }
 
 }

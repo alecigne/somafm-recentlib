@@ -1,8 +1,11 @@
 # `somafm-recentlib`
 
-Library that retrieves [SomaFM][1]'s recently played songs.
+`somafm-recentlib` is a library that retrieves [SomaFM][1]'s recently played songs.
 
-Please support SomaFM's awesome work [here][2].
+The latest stable release is [v0.1.1][11]. Development for v0.2.0 is ongoing in the [develop][12]
+branch.
+
+Please support SomaFM's awesome work [here][2]!
 
 # About
 
@@ -146,3 +149,7 @@ alerts in case of errors.
 [9]: https://github.com/alecigne/somafm-recentlib/releases
 
 [10]: https://jitpack.io/
+
+[11]: https://github.com/alecigne/somafm-recentlib/tree/v0.1.1
+
+[12]: https://github.com/alecigne/somafm-recentlib/tree/develop

@@ -11,19 +11,15 @@ import net.lecigne.somafm.recentlib.Broadcast;
 record BroadcastDto(
     String utcTime,
     String channel,
-    String artist,
-    String title,
-    String album
+    SongDto song
 ) {
 
   static BroadcastDto fromDomain(Broadcast broadcast) {
-    LocalDateTime localDateTime = broadcast.getTime().atZone(ZoneId.systemDefault()).toLocalDateTime();
+    LocalDateTime localDateTime = broadcast.time().atZone(ZoneId.systemDefault()).toLocalDateTime();
     return BroadcastDto.builder()
         .utcTime(DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(localDateTime))
-        .channel(broadcast.getChannel().publicName())
-        .artist(broadcast.getSong().getArtist())
-        .album(broadcast.getSong().getAlbum())
-        .title(broadcast.getSong().getTitle())
+        .channel(broadcast.channel().publicName())
+        .song(SongDto.fromDomain(broadcast.song()))
         .build();
   }
 

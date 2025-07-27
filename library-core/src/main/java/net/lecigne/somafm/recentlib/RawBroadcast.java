@@ -9,5 +9,11 @@ import lombok.Builder;
  * there is no channel-related data. This is basically a parsed entry.
  */
 @Builder
-record RawBroadcast(String time, String artist, String title, String album) {
+record RawBroadcast(
+    String time,
+    String artist,
+    String artistLink,
+    String title,
+    String album
+) {
 }
