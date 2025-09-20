@@ -14,9 +14,7 @@ class SomaFmHtmlParser {
   List<RawBroadcast> parse(String htmlBroadcasts) {
     Document doc = Jsoup.parse(htmlBroadcasts);
     Element table = doc.select("table").first();
-    if (table == null) {
-      throw new SomaFmException("Error while parsing HTML broadcasts.");
-    }
+    if (table == null) throw new SomaFmException("Error while parsing HTML broadcasts.");
     Elements elements = table.select("tr");
     return elements
         .subList(2, elements.size() - 1)
