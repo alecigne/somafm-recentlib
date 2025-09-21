@@ -45,9 +45,7 @@ class SomaFmHtmlClient {
   private SomaFmException handleFetchException(Exception e) {
     var error = "Error while fetching recent broadcasts";
     log.error(error, e);
-    if (e instanceof InterruptedException) {
-      Thread.currentThread().interrupt();
-    }
+    if (e instanceof InterruptedException) Thread.currentThread().interrupt();
     throw new SomaFmException(error, e);
   }
 

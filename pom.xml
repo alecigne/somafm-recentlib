@@ -6,7 +6,7 @@
 
   <groupId>net.lecigne</groupId>
   <artifactId>somafm-recentlib-parent</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
   <packaging>pom</packaging>
 
   <modules>
@@ -20,7 +20,7 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.testing.version>3.5.3</maven.testing.version>
+    <maven.testing.version>3.5.4</maven.testing.version>
     <maven.compiler.version>3.14.0</maven.compiler.version>
   </properties>
 
@@ -29,7 +29,7 @@
       <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.38</version>
+        <version>1.18.42</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
@@ -40,14 +40,14 @@
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>5.13.3</version>
+        <version>5.13.4</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.assertj</groupId>
         <artifactId>assertj-core</artifactId>
-        <version>3.27.3</version>
+        <version>3.27.4</version>
         <scope>test</scope>
       </dependency>
     </dependencies>

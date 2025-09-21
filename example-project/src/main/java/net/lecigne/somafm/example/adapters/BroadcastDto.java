@@ -8,16 +8,12 @@ import lombok.Builder;
 import net.lecigne.somafm.recentlib.Broadcast;
 
 @Builder
-record BroadcastDto(
-    String utcTime,
-    String channel,
-    SongDto song
-) {
+record BroadcastDto(String localTime, String channel, SongDto song) {
 
   static BroadcastDto fromDomain(Broadcast broadcast) {
     LocalDateTime localDateTime = broadcast.time().atZone(ZoneId.systemDefault()).toLocalDateTime();
     return BroadcastDto.builder()
-        .utcTime(DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(localDateTime))
+        .localTime(DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(localDateTime))
         .channel(broadcast.channel().publicName())
         .song(SongDto.fromDomain(broadcast.song()))
         .build();
