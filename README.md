@@ -25,6 +25,8 @@ See the [changelog][8].
 
 # Usage
 
+You need Java 17+ to include this library.
+
 ## API
 
 You will find a Spring toy project thats uses the lib in the `example-project` module.
