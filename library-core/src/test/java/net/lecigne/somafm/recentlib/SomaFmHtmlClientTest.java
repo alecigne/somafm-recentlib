@@ -7,6 +7,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -24,7 +25,7 @@ class SomaFmHtmlClientTest {
 
   private final HttpClient httpClient = mock(HttpClient.class);
   private final HttpResponse<String> mockResponse = mock(HttpResponse.class);
-  private final SomaFmHtmlClient somaFmHtmlClient = new SomaFmHtmlClient(new SomaFmConfig("http://localhost", ""), httpClient);
+  private final SomaFmHtmlClient somaFmHtmlClient = new SomaFmHtmlClient(new SomaFmConfig(URI.create("http://localhost"), ""), httpClient);
 
   @ParameterizedTest
   @MethodSource

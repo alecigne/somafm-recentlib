@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @SuppressWarnings("unused") // This is the lib's API
 public class SomaFm {
 
-  static final String DEFAULT_URL = "https://www.somafm.com";
+  static final String DEFAULT_URL = "https://www.somafm.com/";
   static final ZoneId BROADCAST_LOCATION = ZoneId.of("America/Los_Angeles");
 
   private final SomaFmHtmlClient client;
@@ -34,9 +34,6 @@ public class SomaFm {
   }
 
   public static SomaFm of(String baseUrl, String userAgent) {
-    if (userAgent == null || userAgent.trim().isEmpty()) {
-      throw new IllegalArgumentException("User agent must be provided.");
-    }
     var libConfig = SomaFmConfig.of(baseUrl, userAgent);
     return new SomaFm(
         SomaFmHtmlClient.of(libConfig),

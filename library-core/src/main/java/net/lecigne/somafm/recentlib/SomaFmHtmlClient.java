@@ -50,7 +50,7 @@ class SomaFmHtmlClient {
   }
 
   private URI createChannelUri(Channel predefinedChannel) {
-    return URI.create(config.baseUrl()).resolve(predefinedChannel.toRecentPath());
+    return config.baseUri().resolve(predefinedChannel.toRecentPath());
   }
 
   static SomaFmHtmlClient of(SomaFmConfig config) {
