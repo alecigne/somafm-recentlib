@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.2.2](https://github.com/alecigne/somafm-recentlib/tree/v0.2.2) - 2025-10-25
+
+- Improve validation of config parameters.
+- Update dependencies.
+
 ## [v0.2.1](https://github.com/alecigne/somafm-recentlib/tree/v0.2.1) - 2025-09-21
 
 - Update dependencies.

@@ -6,7 +6,7 @@
 
   <groupId>net.lecigne</groupId>
   <artifactId>somafm-recentlib-parent</artifactId>
-  <version>0.2.2-SNAPSHOT</version>
+  <version>0.2.2</version>
   <packaging>pom</packaging>
 
   <modules>
