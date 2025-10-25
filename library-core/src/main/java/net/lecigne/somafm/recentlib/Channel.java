@@ -8,7 +8,7 @@ public interface Channel {
   boolean seasonal();
 
   /**
-   * Create the relative path to the channel's recently-played tracks HTML page.
+   * Create the relative path to the channel's recently played tracks HTML page.
    */
   default URI toRecentPath() {
     return URI.create(String.format("recent/%s.%s", internalName(), "html"));
