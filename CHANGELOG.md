@@ -1,6 +1,6 @@
 # Changelog
 
-## [v0.2.1](https://github.com/alecigne/somafm-recentlib/tree/v0.2.0) - 2025-09-21
+## [v0.2.1](https://github.com/alecigne/somafm-recentlib/tree/v0.2.1) - 2025-09-21
 
 - Update dependencies.
 - Apply minor improvements to the code.
