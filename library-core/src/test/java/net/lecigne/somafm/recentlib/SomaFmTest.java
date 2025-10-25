@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
-@DisplayName("The SomaFm root class")
+@DisplayName("The SomaFM root class")
 class SomaFmTest {
 
   @ParameterizedTest

@@ -10,7 +10,7 @@ import java.time.Duration;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Fetch and parse the recently-played tracks page of a given channel.
+ * Fetch and parse the recently played tracks page of a given channel.
  */
 @Slf4j
 class SomaFmHtmlClient {

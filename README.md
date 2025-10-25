@@ -18,7 +18,7 @@ Thus this library works by parsing SomaFM's "Recently Played Songs" page (exampl
 This functionality was originally extracted from the [somafm-song-history][5] project.
 
 This lib is developed for my very limited personal use and as such, it is not published on any
-public artifact repository, only on a [private, self-hosted one][6]. You can always grab the jar and
+public artifact repository, only on a [private, self-hosted one][6]. You can always grab the JAR and
 include it in your project (see below). I'll be glad to help if you encounter any [issue][7].
 
 See the [changelog][8].
@@ -29,7 +29,7 @@ You need Java 17+ to include this library.
 
 ## API
 
-You will find a Spring toy project thats uses the lib in the `example-project` module.
+You will find a Spring toy project that uses the lib in the `example-project` module.
 
 Basic usage:
 
@@ -57,9 +57,9 @@ Channel channel = PredefinedChannel
 This lib might be published on a public repository one day. In the meantime, you can use the lib in
 two different ways.
 
-### Jitpack
+### JitPack
 
-[Jitpack][10] is pretty cool. Just add the JitPack repository to your build file (here, a Maven POM
+[JitPack][10] is pretty cool. Just add the JitPack repository to your build file (here, a Maven POM
 file):
 
 ```xml
@@ -88,7 +88,7 @@ And voilà! Everything should work.
 
 You can also use the lib's JAR directly by following this workflow:
 
-1. Grab a the JAR and POM files of a given version of the lib from [release section][9] of this
+1. Grab the JAR and POM files of a given version of the lib from [releases section][9] of this
    repository.
 
 2. Create a `lib/` directory in your project.
@@ -144,7 +144,7 @@ alerts in case of errors.
 
 [6]: https://reposilite.com/
 
-[7]: https://github.com/alecigne/somafm-recently-played/issues
+[7]: https://github.com/alecigne/somafm-recentlib/issues
 
 [8]: CHANGELOG.md
 
