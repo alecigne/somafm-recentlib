@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.2.4](https://github.com/alecigne/somafm-recentlib/tree/v0.2.4) - 2026-07-05
+
+- Update dependencies.
+- Improve Maven and CI configuration.
+
 ## [v0.2.3](https://github.com/alecigne/somafm-recentlib/tree/v0.2.3) - 2026-02-18
 
 Update dependencies.
