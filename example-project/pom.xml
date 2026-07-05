@@ -28,7 +28,7 @@
     <dependency>
       <groupId>net.lecigne</groupId>
       <artifactId>somafm-recentlib</artifactId>
-      <version>0.2.4-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     <!-- Spring -->
     <dependency>
@@ -50,8 +50,6 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven.compiler.version}</version>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
           <annotationProcessorPaths>
             <path>
               <groupId>org.projectlombok</groupId>
