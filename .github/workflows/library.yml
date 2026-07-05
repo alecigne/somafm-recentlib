@@ -10,9 +10,12 @@ on:
       - 'master'
       - 'develop'
     paths-ignore:
-      - 'example-project'
-      - 'functional-tests'
+      - 'example-project/**'
+      - 'functional-tests/**'
       - '**.md'
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -27,4 +30,4 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: ./mvnw --batch-mode --update-snapshots clean verify -pl library-core
+        run: ./mvnw --batch-mode --no-transfer-progress clean verify -pl library-core

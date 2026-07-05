@@ -2,7 +2,7 @@
 
 `somafm-recentlib` is a Java library that retrieves [SomaFM][somafm]'s recently played songs.
 
-The latest stable release is [v0.2.3][stable]. Development for v0.3.0 is ongoing in the
+The latest stable release is [v0.2.4][stable]. Development for v0.3.0 is ongoing in the
 [develop][develop] branch.
 
 Please support SomaFM's awesome work [here][soma-support]!
@@ -81,7 +81,7 @@ demo project which depends on Spring!):
 <dependency>
   <groupId>com.github.alecigne.somafm-recentlib</groupId>
   <artifactId>somafm-recentlib</artifactId>
-  <version>v0.2.3</version>
+  <version>v0.2.4</version>
 </dependency>
 ```
 
@@ -125,7 +125,7 @@ You can also use the lib's JAR directly by following this workflow:
    <dependency>
      <groupId>net.lecigne</groupId>
      <artifactId>somafm-recentlib</artifactId>
-     <version>0.2.3</version>
+     <version>0.2.4</version>
    </dependency>
    ```
 
@@ -166,7 +166,7 @@ https://github.com/alecigne/somafm-recentlib/releases
 https://jitpack.io/
 
 [stable]:
-https://github.com/alecigne/somafm-recentlib/tree/v0.2.3
+https://github.com/alecigne/somafm-recentlib/tree/v0.2.4
 
 [develop]:
 https://github.com/alecigne/somafm-recentlib/tree/develop
