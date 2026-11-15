@@ -2,7 +2,7 @@
 
 `somafm-recentlib` is a Java library that retrieves [SomaFM][somafm]'s recently played songs.
 
-The latest stable release is [v0.2.4][stable]. Development takes place on `master`.
+The latest stable release is [v0.2.4][stable].
 
 Please support SomaFM's awesome work [here][soma-support]!
 
@@ -140,8 +140,7 @@ just package           # Package the library without running tests
 just build             # Run both suites, then package the library
 ```
 
-These commands build only `library-core`. CI runs the test suites in parallel in separate jobs;
-`just build` runs them sequentially in the local working directory.
+These commands build only `library-core` at the moment.
 
 The functional tests are an experiment, under development. The goal is to execute them regularly on
 a Raspberry Pi to check the lib's compatibility with the page it is parsing, and receive alerts in
